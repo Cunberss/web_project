@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+Примеры использования нейросети
+{% endblock %}
+
+{% block body %}
+<h3 align="center">Примеры</h3>
+<p align="center"> Алгоритмы распознают достаточно много разнообразных объектов на фотографиях.
+    Со всем списком вы можете ознакомиться в разделе FAQ. Здесь приведены показательные примеры на реальных фотографиях. </p>
+ <p align="center">
+     <img src="static/images/example1.jpg" width="45%">
+     <img src="static/images/example1_1.jpg" width="45%">
+ </p>
+<p align="center"> В данном примере нейросеть распознала мобильный телефон и пометила его область квадратом.
+Наименование распознанного объекта пишется в левом верхнем углу квадрата (cell phone)</p>
+<p align="center">
+     <img src="static/images/example2.jpg" width="45%">
+     <img src="static/images/example2_2.jpg" width="45%">
+ </p>
+<p align="center">Нейросеть также может определить человека и даже некоторых животных.</p>
+<p align="center">
+     <img src="static/images/example3.jpg" width="45%">
+     <img src="static/images/example3_3.jpg" width="45%">
+ </p>
+<p align="center">Легковые автомобили и прочий транспорт не остались без внимания. Наиболее часто данный алгоритм применяется к видеозаписям
+с улиц для мониторинга транспорта.</p>
+    {% endblock %}

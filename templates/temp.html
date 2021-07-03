@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}
+Результат нейросети
+{% endblock %}
+
+{% block body %}
+    <h3 align="center">Распознавание объектов с фотографии</h3>
+<p align="center">Фотография отправлена на обработку.</p>
+   <p align="center"> Как только результат будет готов - обработанная фотография появится на этой странице. Не закрывайте страницу
+   до получения результата.Примерное время выполнения - около 2 минут</p>
+{% for message in get_flashed_messages() %}
+  <p align="center" style="color: red;">{{ message }}</p>
+{% endfor %}
+<script>
+window.onbeforeunload = function (e) {
+  var e = e || window.event;
+  var myMessage= "";
+  if (e) {
+    e.returnValue = myMessage;
+  }
+  return myMessage;
+};
+
+
+    let xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+         myFunction(this.responseText)
+    }
+}
+
+function main() {
+    xhttp.open("GET", "http://127.0.0.1:5000/result/{{filename}}");
+    xhttp.send();
+}
+
+function myFunction() {
+    document.querySelector('#elem').style.width = '60%';
+    document.querySelector('#elem').src = 'http://127.0.0.1:5000/result/{{filename}}'
+     }
+
+window.setInterval(main, 5000);
+</script>
+
+<p align="center"><img id="elem" src="http://127.0.0.1:5000/static/images/load.gif" alt="Выполняется обработка..." width="20%"></p>
+    {% endblock %}

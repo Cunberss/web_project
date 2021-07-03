@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+Распознавание объектов
+{% endblock %}
+
+{% block body %}
+    <h3 align="center">Распознавание объектов с фотографии</h3>
+    <p align="center">Прикрепите изображение, нажав кнопку "Загрузить фотографию".
+        После загрузки отправьте фотографию на сервер. Наберитесь терпения, поскольку нейронная сеть должна подумать над ответом. Результат станет доступен сразу же после ответа от сервера.
+        Поддерживаемые форматы изображения: jpg,jpeg,png.</p>
+{% for message in get_flashed_messages() %}
+  <p align="center" style="color: red;">{{ message }}</p>
+{% endfor %}
+    <form action="" method=post enctype=multipart/form-data>
+        <p align="center">
+        <label class="custom-file-upload">
+    <input type=file name=file value="Выбрать">
+    <i class="fa fa-cloud-upload"></i> Загрузить фотографию
+        </label>
+</p>
+        <p align="center">
+        <input type=submit value="Отправить" name="Отправить" class="btn btn-danger">
+        </p>
+    </form>
+
+{% endblock %}
+
+

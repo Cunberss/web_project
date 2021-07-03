@@ -1,0 +1,6 @@
+RESULT_FOLDER: 'results/'
+CELERY_BROKER_URL: 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND: 'redis://localhost:6379/0'
+SECRET_KEY: 'sdsds213123kldfklsd232'
+UPLOAD_FOLDER: 'uploads/'
+ALLOWED_EXTENSIONS: ['png', 'jpg', 'jpeg','PNG','JPG','JPEG']
